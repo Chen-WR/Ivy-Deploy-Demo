@@ -1,0 +1,255 @@
+
+{% load static %}
+<head>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!--Includes HTTP:/HTTPS: is compatible for Chrome/FireFox -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Khula:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+{%include "main/HeadNav.html" %}
+
+<div class="parallax-container">
+    <div class="parallax">
+        <img style = "bottom:163px;" src="{%static 'media\Books.jpg' %}" class = "responsive-img">
+                <h1 class="ml131">Services</h1>
+    </div>
+</div>
+
+    <div class = "writingSection">
+      <div class = "container" >
+          <h4 class="" style="text-align:center;">
+            <br>
+            <strong><font color="#a82e2e">We provide tutoring for all subjects from the best Pre K-College educators! 
+            </font>
+            <br>
+            <br>
+            <br>
+            <i>Individualized education programs customized to your specific needs, taught by experienced education professionals.</i>
+            </strong></h4>
+            <!--Ignore these <br> doing this as a temp solution.-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href = "/Contact"  class="btn btn-sm btn-outline-secondary" role= 'button' style = "position:relative;left:40%;">
+              Contact Us! </button></a>
+      
+      </div>
+    </div>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+
+<div>
+    <h1>Services</h1>
+    <h4>We provide tutoring for many subjects!</h4>
+    
+    <div class="row">
+      
+          <div class="card" >
+            <img src="{%static 'media\tutor-explaining.png' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><b>Math</b></h4>
+              <p class="card-text">At Ivy Tutoring Services we tutor all levels of math from Elementary
+                Math to AP Calculus.  Math can be a very difficult and frustrating
+                subject for many students.  Our math tutors are knowledgeable and
+                experienced teachers and tutors who patiently work to simplify
+                complex math problems and build confidence in their students.  Our
+                math tutors use hands on activities, manipulatives and technology to
+                engage their students&#39; interest while helping them to build a solid
+                mathematical foundation.  They break down the concepts piece by
+                piece and explain the material in ways that mesh with your child&#39;s
+                learning style.</p>
+            </div>
+          </div>        
+        
+          <div class="card" >
+            <img src="{%static 'media\Books.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><b>Reading/Writing</b></h4>
+              <p class="card-text">Ivy Tutoring Services provides personally tailored reading lessons from
+                our highly qualified and outstanding tutors.  Reading is one of the most
+                important skills for a child to master.  Success in every other subject
+                requires it.  Writing is an essential communication tool that requires a
+                skilled thought process. Our tutors can work with you 1:1 to improve
+                writing skills and improve your grades.</p>
+            </div>
+          </div>
+
+          <div class="card" >
+            <img src="{%static 'media\science.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><b>Science</b></h4>
+              <p class="card-text">Science can be difficult, but we can make it easier!  Our science
+                tutors at Ivy Tutoring Services can help you gain a better
+                understanding and improve your grades!
+                ​ Our experienced tutors can help you with any of the following Science
+                concentrations:
+                <div class="list">
+                <li>Middle School Science</li> 
+                <li>Physical Science</li> 
+                <li>Environmental Science</li> 
+                <li>Biology</li> 
+                <li>Chemistry</li>
+                <li>Physics</li>
+                <li>AP Science Classes</li>
+                <li>And More!</li>
+                </div>
+               </p>
+            </div>
+          </div>
+          
+          <div class="card" >
+            <img src="{%static 'media\history.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><b>History</b></h4>
+              <p class="card-text">Our History and Social Science tutors will help you to understand your
+                classwork and improve your grades and confidence through 1:1
+                tutoring.
+                Our tutors can help with the following history classes:
+                <div class="list">
+                  <li>American History</li> 
+                  <li>European History</li> 
+                  <li>World History</li> 
+                  <li>Government</li>
+                  <li>Geography</li>
+                  <li>Computer Science</li>
+                  </div>
+              </p>
+            </div>
+          </div>
+
+          <div class="card" >
+            <img src="{%static 'media\preschool.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><b>Preschool and Kindergarten Tutoring</b></h4>
+              <p class="card-text">Beginning school is such a wonderful milestone.  Let us
+                help your child have the best possible start. Our tutors
+                will provide a nurturing and hands-on learning experience
+                that will give your child the tools needed to have a
+                successful start to their academic career!<br>
+                All of our preschool tutors are certified early childhood
+                teachers.  Our tutors incorporate hands-on activities and
+                games to create an interactive learning experience that
+                will motivate and inspire your child all while giving them a
+                solid foundation to begin formal schooling.
+               </p>
+            </div>
+          </div>
+          
+          <div class="card" >
+            <img src="{%static 'media\Books.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><b>Orton Gillingham</b></h4>
+              <p class="card-text">Ivy Tutoring Service specializes in the Orton-Gillingham method, a
+                multisensory approach to remediating dyslexia. If a student has difficulty
+                with reading, spelling, and/or writing, our certified tutors can help improve
+                his/her decoding ability and reading fluency. The Orton Gillingham
+                methodology for teaching reading and spelling is a scientifically based,
+                systematic, multi-sensory program with many decades of research behind it. 
+                The &quot;OG&quot; method is considered THE best methodology for teaching dyslexic
+                children.  Research shows that other struggling learners benefit greatly from
+                OG instruction as well.
+                Children with dyslexia and other struggling readers/spellers typically require
+                direct, specific instruction in each of the components of the reading process
+                in order to read and spell proficiently. They often benefit from intensity of
+                instruction, and one-on-one settings where learning is personalized.
+                Please call for more information about our “OG” program.
+              </p>
+            </div>
+          </div>
+          
+    </div>
+</div>
+</div>
+</div>
+{%include "main/Footer.html" %}
+
+<script>
+  $(document).ready(function(){
+      $('.parallax').parallax();
+  });
+    var textWrapper = document.querySelector('.ml131');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+  
+    anime.timeline({loop: false})
+      .add({
+        targets: '.ml131 .letter',
+        translateY: [100,0],
+        translateZ: 0,
+        opacity: [0,1],
+        easing: "easeOutExpo",
+        duration: 6000,
+        delay: (el, i) => 300 + 30 * i
+      })
+  </script>
+ 
+<style>
+  .ml131{
+          position:absolute;
+          font-size: 6em;
+          color:rgb(150, 150, 150);
+          letter-spacing:1px;
+          width:100%;
+          text-align:center;
+          top:40%;
+      }
+  .letter{
+    font-family:emoji;  
+  }
+    .space{
+        height: 100px;
+    }
+
+    .card-header{
+        /* background-color:#98AFA5; */
+        background-color:white;
+        margin-top: 0px;
+        text-align: center;
+    }
+
+    .card{
+        margin: 5px;
+        width: 30%;
+        background-color: #98AFA5;  
+    }
+
+    .card-body {
+      text-align: center;
+      margin-left: 1%;
+      margin-right: 1%;
+    }
+
+  
+    .list{
+      text-align: left;
+    }
+    .card img{
+      background-color: whitesmoke;
+      height: 170px;
+    }
+    .btn{
+      height:7%;
+      font-size:20px;
+      width:18%;
+      text-align:center;
+      line-height:3.5;
+      background-color:#FFD45A;
+    }
+    .parallax-container {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 100%;
+        }
+
+</style>

@@ -1,0 +1,81 @@
+{%load static%}
+
+<head>
+    
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<!-- stripe api and js file -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'main.js' %}"></script>
+</head>
+
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href = "/Contact/"> Contact </a></li>
+        <li><a href = "/Applicant">Career</a></li>
+    </ul>
+    <nav>
+        <div class='nav-wrapper'>
+            <a href="/" class="brand-logo"><img id = "logo" src="{%static 'media\logo.png' %}" ></a>
+            <ul id="nav" class = "right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                    <li><a href = "/"> Home </a></li> 
+                    <li><a href = "/AboutUs"> About us </a></li> 
+                    <li><a href = "{% url 'main:profile' username=request.user.username %}"> {{ user.username }}</a></li>
+                    <li><a href= "/Services"> Services </a></li>
+                    <li><a href = "/Tutor"> Tutor </a></li>
+                    <li><a href = "/Contact/"> Contact </a></li>
+                    <li><a href="/logout"> Logout </a></li>
+                {% else %}
+                    <li><a href = "/"> Home </a></li> 
+                    <li><a href = "/AboutUs"> About us </a></li> 
+                    <li><a href= "/Services"> Services </a></li>
+                    <li><a href = "/Tutor"> Tutor </a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Contact Us    <i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="/Payment/">Payment</a></li>
+                    <li><a href = "/login"> Login </a></li>
+                {% endif %}
+               
+            </ul>
+        </div>
+    </nav>
+
+<!--#98AFA5-->
+<style>
+#logo{
+    width: 275px;
+    padding-left: 20px;
+    padding-top: 8px;
+}
+nav{
+    height:115px;
+    background-color:white;
+}
+
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i{
+    line-height:118px;
+}
+nav ul a{
+font-size: 20px;
+color:#6db27a;
+letter-spacing:3px;
+}
+
+</style>
+    <script>
+        $(document).ready(function(){
+        $(".dropdown-trigger").dropdown(
+            {
+                "coverTrigger": false
+            }
+        );
+        });
+    </script>
+
+
+
+
+

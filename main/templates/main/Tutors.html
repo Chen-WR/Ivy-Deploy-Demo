@@ -1,0 +1,233 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Khula:700' rel='stylesheet' type='text/css'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>-->
+</head>
+
+{%include "main/HeadNav.html" %}
+{%load static%}
+<div class = "container" >
+  <h4 class="" style="text-align:left;"><strong><font color="#eee6e6">A little bit about our team:</font></strong></h4>
+    <hr>
+      <div class = "", style = "text-align: left; color:#eee6e6;">
+          <font size = "3">
+              Give your child the study help they need with passionate and intelligent tutors.
+              With a robust online scheduling system, thorough hiring process, and personalized learning.
+              Ivy Tutoring guarantees an effective, and safe environment for your child to learn!       
+          </font>    
+      </div>
+    <hr>
+
+    
+
+  <div class = "form-group">
+    <input type = "text" class = "form-control" id = "searchBar" placeholder ="Search by Name!">
+  </div>
+  
+
+  <form class = "wrapper" method = "GET" action ="{% url 'main:TagResults' %}">
+      <input name = "searchBarTags" type = "text" class = "input" placeholder = "Search for by Subject!" , value = {{request.GET.searchBar}}>       
+    </form>          
+
+    <h4 class="Subject-head" style="text-align:left;"></h4><font color="#d6dce2">Subject Popular:</font></h4>
+    <div class = "Subjects", style = "text-align: left; color:#eee6e6;">
+      <font size = "4">
+          Math, Science, Spanish, French, Language Arts       
+      </font>    
+  </div>
+</div>  
+
+<p class="no-results" style="display: none;"></p>
+
+  <div class="table-output">
+    <div class="row card-container"> 
+        
+          
+            
+          </div>
+        </div>
+
+
+
+<div class = "app-table">
+  <div class="row card-container">
+    {% for use in users %}
+        {% if not use.is_superuser %}
+        
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                {% if use.profile.pro_pic %}
+                
+                  <img class="activator" src="{{ use.profile.pro_pic.url }}">
+                {% else %}
+                  <img class="activator" src="{%static 'media/Default.jpg' %}">
+              {% endif %}
+            </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{use.first_name}} {{use.last_name}}<i class="material-icons right">{{use.profile.state}}</i></span>
+              <p style = "font-size:1.2rem;">Learn more about  <a href="{% url 'main:profile' username=use.username %}">{{use.first_name}}</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{use.first_name}} {{use.last_name}}<i class="material-icons right">close</i></span>
+              <p>{{use.profile.intro|safe}}</p>
+          </div>
+        </div>
+        {%endif%}
+    {% endfor %}
+    
+  </div>
+</div> 
+
+<script>
+const searchField = document.querySelector("#searchBar");
+const tableOutput = document.querySelector(".table-output");
+const tbody = document.querySelector(".row");
+const appTable = document.querySelector(".app-table");
+tableOutput.style.display = "none";
+const noResults = document.querySelector(".no-results");
+
+searchField.addEventListener("keyup", (e) => {
+    const searchValue = e.target.value;
+    if(searchValue.trim().length>0){
+        tbody.innerHTML = "";
+       
+
+        fetch("Search_Results/", {
+            body: JSON.stringify({searchText: searchValue}),
+            method: "POST",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            appTable.style.display = "none";
+            tableOutput.style.display = "block";
+
+            if(data.length == 0){
+                noResults.style.display = "block";
+                tableOutput.innerHTML = "";
+            }
+            else{
+                noResults.style.display = "none";
+                data.forEach((item)=>{
+                    if(item.is_superuser == false && item.pro_pic){
+                        tbody.innerHTML += `
+                      <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://ivytutoringservice.s3.us-east-2.amazonaws.com/${item.pro_pic}">
+                            </div>
+                  
+                         
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">${item.first_name} ${item.last_name} <i class="material-icons right">${item.state}</i></span>
+                                <p style = "font-size:1.2rem;">Learn more about <a href="Profile/${item.username}">${item.first_name}</a></p>
+                            </div>
+                            
+                         <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">${item.first_name} ${item.last_name}<i class="material-icons right">close</i></span>
+                            <p>${item.intro}</p>
+                        </div>
+                    </div>
+                        `;
+                    }
+                    });        
+                    
+            }
+        });
+    }
+    else{
+        tableOutput.style.display= 'none';
+        appTable.style.display = "block";
+        
+    }
+
+
+    });
+
+  
+</script> 
+ 
+ 
+
+  <style>
+      html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      
+      background:linear-gradient(90deg, rgb(71, 71, 71), rgba(33, 88, 70, 0.3)),url( "{% static 'media/AboutUs.jpg' %}");
+    }
+    
+    .card-container{
+      position: absolute;
+      width: 60%;
+      top: 165px;
+      left: 42%;
+    }
+    .search-container{
+      position:relative;
+      top:70px;
+    }
+    div.card-container {
+      -moz-column-width: 23rem;
+      -webkit-column-width: 23rem;
+      -moz-column-gap: 1rem;
+      -webkit-column-gap: 1.5rem;
+    }
+  
+    .card{
+      width: 30%;
+      height:430px;
+    }
+    .input{
+      color:white;
+    }
+    .container{
+      width:30%;
+      margin: 0 auto;
+      max-width: 1280px;
+      position: relative;
+      right: 30%;
+      top:160;
+    }
+    .wrapper{
+      width:65%;
+    }
+    img {
+    width: 275px;
+    padding-left: 5px;
+    padding-right:5px;
+    padding-top: 8px;
+  } 
+  hr{
+      height:3px;
+      border:none;
+      color:#c0bebe;
+      background-color:#c0bebe;  
+  }
+
+  ::placeholder{
+    color:#efefeb
+  }
+  .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+    color:#efefeb;
+    opacity:1;
+    font-size:1rem;
+  }
+  #searchBar{
+    color:white;
+  }
+  </style>
+  
+  <style type= "text/css">
+      .col {
+        position:relative;
+        top:6%;
+      }
+  </style>
+

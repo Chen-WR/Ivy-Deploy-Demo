@@ -1,0 +1,433 @@
+{% load static %}
+<head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!--Includes HTTP:/HTTPS: is compatible for Chrome/FireFox -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Khula:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+{%include "main/HeadNav.html" %}
+{% for message in messages %}
+    <script>
+      alert('{{ message }}');
+    </script>
+{% endfor %}
+<div class="parallax-container">
+    <div class="parallax">
+        <img src="{%static 'media\Tutor.jpg' %}" class = "responsive-img">
+                <h1 class="ml131">Ivy Tutoring</h1>
+    </div>
+</div>
+<div>
+    <div class = "container" >
+        <center><h4>We Tutor <i>ALL</i> Academic Subjects & Tests</h4></center>
+        <center><h6>​* Elementary * Middle School * High School * College * Adult * Test Prep  </h6></center>
+        <br>
+       
+    
+    </div>
+    
+</div>
+<div class="album bg-light">
+    <div class="container">
+
+      <div class="row">
+        
+          
+        <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{%static 'media\textbooks.png' %}">
+                <div class="card-body">
+                  <p class="card-text" style= "text-align: center; font-size:26px;">Variety of Subjects</p>
+                  <p class="card-text" style = "text-align:center;">From Algebra,Calculus,SAT,to History. Ivy Tutroing has an array of subjects and guarantees we can find a tutor for your child!</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href = "/Services"  class="btn btn-sm btn-outline-secondary" role= 'button'>Learn More</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="{%static 'media\tutor-explaining.png' %}">
+              <div class="card-body">
+                <p class="card-text" style= "text-align: center; font-size:26px;">1 on 1 Tutoring</p>
+                <p class="card-text" style = "text-align:center;">Meet with your handpicked tutor that matches your child's personality, and schedule. We offer personalized workload just for you!</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href = "/Contact"  class="btn btn-sm btn-outline-secondary" role= 'button'>Learn More</button></a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" src="{%static 'media\a-plus-test.png' %}">
+                  <div class="card-body">
+                    <p class="card-text" style= "text-align: center; font-size:26px;">The Right Fit</p>
+              <p class="card-text" style = "text-align:center;">Each student is different, and each tutor is different! Ivy Tutoring strives to find the most fruitful mentor-student relationship</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href = "/Tutor"  class="btn btn-sm btn-outline-secondary" role= 'button'>Learn More</button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+  </div>
+  <hr style = "height:1.5px;border:none;color:#c0bebe;background-color:#c0bebe;">
+
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <center><h2>Our Process</h2></center>
+    
+                    <div class="hori-timeline" dir="ltr">
+                        <ul class="list-inline events">
+                            <li class="list-inline-item event-list">
+                                <div class="px-4">
+                                    <h5 class="font-size-16">1. Search</h5>
+                                    <p class="text-muted">You have already taken the first step in finding us! We are here to help. Contact us to request a tutor and we will have them contact you right away. </p>
+                                </div>
+                            </li>
+                            <li class="list-inline-item event-list">
+                                <div class="px-4">
+                                    <h5 class="font-size-16">2. Select</h5>
+                                    <p class="text-muted">Our tutor profiles include education, qualifications, and a tutor bio. Our tutors are hand-picked, we only want to give you the best!</p>
+                                </div>
+                            </li>
+                            <li class="list-inline-item event-list">
+                                <div class="px-4">
+                                    <h5 class="font-size-16">3. Schedule</h5>
+                                    <p class="text-muted">Contact us to get connected with a tutor and find a time and place that works for everyone. We accommodate all scheduling requests!</p>
+                                </div>
+                            </li>
+                            <li class="list-inline-item event-list">
+                                <div class="px-4">
+                                    <h5 class="font-size-16">4. Study</h5>
+                                    <p class="text-muted">One-on-one tutoring is the most effective way to learn. Ivy Tutoring handles all the behind the scenes stuff so that you can concentrate on what's important.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
+  </div>
+  <div>
+</div> 
+</div>
+<!--Course Addition-->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<section class="section services-section" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title">
+                    <h2>What We Offer</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-bar-chart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Math</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-flask"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Science</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Writing</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Reading</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>History</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-desktop"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Computers</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+        </div>
+    </div>
+</section>
+<div class = "container" >
+  <center><h5><i>We are Ready to Help Your Child Succeed!</i></h5></center>
+  <center><h5><i>Questions? Call Us at 201-970-4814!</i></h5></center>
+
+</div>
+
+<!-- <section class="section">
+  <div class="container">
+    <button class="button is-primary" id="submitBtn">Purchase!</button>
+  </div>
+</section>
+
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'main.js' %}"></script> -->
+
+{%include "main/Footer.html" %}
+<script>
+$(document).ready(function(){
+    $('.parallax').parallax();
+});
+  var textWrapper = document.querySelector('.ml131');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: false})
+    .add({
+      targets: '.ml131 .letter',
+      translateY: [100,0],
+      translateZ: 0,
+      opacity: [0,1],
+      easing: "easeOutExpo",
+      duration: 6000,
+      delay: (el, i) => 300 + 30 * i
+    })
+</script>
+<style>
+    
+.ml131{
+        position:absolute;
+        font-size: 6em;
+        color:white;
+        letter-spacing:1px;
+        width:100%;
+        text-align:center;
+        top:40%;
+    }
+.hori-timeline .events {
+    border-top: 3px solid #e9ecef;
+}
+.hori-timeline .events .event-list {
+    display: block;
+    position: relative;
+    text-align: center;
+    padding-top: 70px;
+    margin-right: 0;
+}
+.hori-timeline .events .event-list:before {
+    content: "";
+    position: absolute;
+    height: 36px;
+    border-right: 2px dashed #dee2e6;
+    top: 0;
+}
+.hori-timeline .events .event-list .event-date {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: 0;
+    width: 75px;
+    margin: 0 auto;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+@media (min-width: 1300px) {
+    .hori-timeline .events .event-list {
+        display: inline-block;
+        width: 24%;
+        padding-top: 45px;
+    }
+    .hori-timeline .events .event-list .event-date {
+        top: -12px;
+    }
+}
+.card {
+    border: none;
+    margin-bottom: 24px;
+    -webkit-box-shadow: 0 0 0px 0 rgba(236,236,241,.44);
+    box-shadow: 0 0 0px 0 rgba(236,236,241,.44);
+    background-color: #f8f9fa;
+}
+.card-img-top{
+  width: 90%;
+  height:280;
+  border-radius:50%;
+}
+.btn-group{
+  position:relative;
+  left:110;
+}
+.letter{
+  font-family:emoji;
+}
+
+body{margin-top:0px;}
+
+/* Feature Box
+---------------------*/
+.feature-box-1 {
+  padding: 32px;
+  box-shadow: 0 0 30px rgba(43, 97, 76, 0.125);
+  margin: 15px 0;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+  top: 0;
+}
+.feature-box-1 * {
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+}
+.feature-box-1 .icon {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  background: #79c99d;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  font-size: 27px;
+}
+.feature-box-1 .icon i {
+  line-height: 70px;
+}
+.feature-box-1 h5 {
+  color: #000000;
+  font-weight: 600;
+}
+.feature-box-1 p {
+  margin: 0;
+}
+.feature-box-1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  border-radius: 10px;
+  width: 0;
+  background: #6bb4ca;
+  z-index: -1;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+}
+.feature-box-1:hover {
+  top: -5px;
+}
+.feature-box-1:hover h5 {
+  color: #ffffff;
+}
+.feature-box-1:hover p {
+  color: rgba(255, 255, 255, 0.8);
+}
+.feature-box-1:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  left: 0;
+  right: auto;
+}
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+.section-title {
+    padding-bottom: 45px;
+}
+.section-title h2 {
+    font-weight: 700;
+    color: #000000;
+    font-size: 45px;
+    margin: 0 0 15px;
+    padding-left: 15px;
+}
+
+element.style {
+    transform: translate3d(-50%, 414.352px, 0px);
+    opacity: 1;
+}
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 100%;
+}
+
+</style>
+
+

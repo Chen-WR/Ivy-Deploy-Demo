@@ -1,0 +1,254 @@
+{% load widget_tweaks %}
+{% load static %}
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--Includes HTTP:/HTTPS: is compatible for Chrome/FireFox -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+{%include "main/HeadNav.html" %}
+<body>
+   <div class = container style = "width:70%;height:100%; position:relative; top:0px;">
+        {% if person.user.profile.pro_pic %} 
+            <img class="card-img" src="{{ person.user.profile.pro_pic.url }}">
+        {% else %}
+            <img class="card-img" src="{%static 'media/Default.jpg' %}">
+        {% endif %}
+
+        <b style = 'font-family: Ubuntu, "times new roman", times, roman, serif; font-size:35px;position:absolute;left:200px;top:52px;'>
+            {{person.user.first_name}} {{person.user.last_name}} 
+            <img class="img" style  = "width:4%;border-radius: 20%; padding-left:0px; padding-top:0px;" src="{%static 'media\TutorSticker.png' %}"> 
+        </b>
+
+        <div class = "content-wrap">
+            <p style = "margin-bottom:-.2rem;">{%render_field person.descript %}</p>
+            <p style = "margin-bottom:-.2rem;">{{person.city}} {{person.state}}</p>
+
+            {% if person.user.username == user.username %}
+            <a href= "EditProfile"> Edit</a>
+                    {% if user.is_superuser %}   
+                        <a href="/OTL">OTL</a>
+                        <a href="/CreateInvoice/">Invoice</a>
+                    {% endif %}
+                {% endif %}
+        </div>
+        
+        <div class = "button-cnt">
+            <form action="/Contact/">
+                <input class = "btn btn-primary" type="submit" value="Book this tutor!" />
+            </form>
+        </div>
+        <div class = "info-block">
+            <h5>About {{person.user.first_name}}</h5>
+                <div class = "", style = "text-align: left; width:60%; color:#5C5C5C;">
+                    <font size = "3">
+                        {{person.intro | safe }}
+                    </font>    
+                </div>
+                <h5 style = "margin: 1.5rem 0 0.656rem 0;">Subjects</h5>
+                <div class = "row" style = "width:60%;">
+                    {% for tag in person.tags.all %}
+                            <a href="#" class="mr-1 badge badge-info">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            
+            <div class="container-fluid">
+                <h5 style = "line-height:235%; font-weight: bolder; color:#0E7D29;">{{person.user.first_name}} is verified</h5>
+                <p style = "font-size:15px;color:#6CB07C"> Our verification process is done for each individual tutor and ensures
+                that each tutor <br> meets our high standards of trust & excellence.</p>
+                <img class="shield-img" src="{%static 'media\Shield.png' %}">
+            </div>
+        </div>
+        <div class = "block">
+            <div class = "right_block">    
+                <h5>Work Experience</h5>
+                    <div class="row" style = "width:22%; display:block;">
+                        {%for x in exp|slice:":3"%}
+                            <p class = "parent" style = "font-size:14px;">{{x.position}} </p>
+                            <p class  = "child" style = "font-size:12px;">{{x.employer}}</p>
+                            <p class ="child-dates" style="font-size:13px; font-style:italic;">{{x.start_year}}-{{x.end_year}}</p>
+                            <hr style = "margin-top: -3.0rem;
+                            margin-bottom: .5rem;height:2px; width:184%;">        
+                        {%endfor%}
+                    </div>
+            </div>
+
+            <div class = "right_block_ed">    
+                <h5>Education</h5>
+                    <div class="row" style = "width:128%; display:block;">
+                        {% for e in ed|slice:":3" %}
+                            <p class = "parent" style = "font-size:14px;">{{e.college}} </p>
+                            <p class  = "child1" style = "font-size:12px;">{{e.major}}</p>
+                            <p class ="child-dates1" style="font-size:13px; font-style:italic;">{{e.c_start_year}}-{{e.c_end_year}}</p>
+                            <hr style = "margin-top: -3.0rem;position:relative;left:-34%;
+                            margin-bottom: .5rem;height:2px; width:33%;">        
+                        {%endfor%}
+                    </div>
+            </div>
+        </div>
+      
+        
+
+    </div>       
+    
+
+</body>
+
+
+ 
+
+
+
+
+<style>
+    body{
+        background-color:#FAFAFA;   
+        overflow-x: hidden;
+        overflow-y:scroll;
+    
+    }
+    .block{
+        top: 737px;
+        left: -10px;
+        position: absolute;
+        width: 560px;
+    }
+    .content-wrap{
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        position: absolute;
+        left: 200px;
+        top: 95px;
+        font-size: 20px;
+
+    }
+    .card{
+        position: absolute;
+        top: 19%;
+        width: 26%;
+        right: 71%;
+        border-radius: 4%;
+        height: 56%;
+       
+    }
+    .row{
+        margin-left:0;
+    }
+    .card-img {
+        max-width: 171px;
+        height: 167;
+        border-radius: 50%;
+        left: 16px;
+        position: absolute;
+        top: 25px;
+        border: 2.5px solid #c0bebe;
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .writingSection{
+        position: relative;
+        top: 15%;
+        left: 33%;
+        width: 55%;
+        max-width:900px;
+    }
+    .col-sm-5{
+        position:absoulte;
+        height:200;
+        width:100%;
+    }
+    .col-sm-5{
+        position: relative;
+        width: 100%;
+        right: 2%;
+    }
+    .container-fluid{
+        background-color: #def3ec;
+        position: relative;
+        left: 0%;
+        top: 0%;
+        height: 17%;
+        width: 64%;
+        max-width: 700px;
+        max-height: 126px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: 0;
+        margin-left: 0;
+        
+    }
+    .shield-img{
+        position:absolute;
+        width:26%;
+        left:78%;
+        bottom:9%;
+
+    }
+    .card-body{
+        padding: 0rem;
+    }
+    .mr-1{
+        width: fit-content;
+        height: 27px;
+        font-size: 15px;
+        margin: 3px 0px 3px 0px;
+        background-color: #d6dce2;
+        color: #7c7e81;
+    }
+    .right_block{
+        position: relative;
+        left: 742px;
+        top: -531px;
+    }
+    .right_block_ed{
+        position: relative;
+        left: 742px;
+        top: -495px;
+    }
+    .child{
+        position:relative;
+        top:-18px;
+    }
+    .child-dates{
+        position: relative;
+        top: -69px;
+        left: 150%;
+    }
+    .button-cnt{
+        position: absolute;
+        top: 66px;
+        left: 733px;
+    }
+    .btn{
+        border: none;
+        border-radius: 2px;
+        display: inline-block;
+        font-size:18px;
+        height: 75px;
+        width: 200px;
+        line-height: 36px;
+        padding: 0 16px;
+        text-transform: uppercase;
+        vertical-align: middle;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .child1{
+        position:relative;
+        top:-18px;
+    }
+    .child-dates1{
+        position: relative;
+        top: -69px;
+        left: 26%;
+    }
+    .info-block{
+        position: absolute;
+        top: 205px;
+        width: 1050;
+    }
+</style>
